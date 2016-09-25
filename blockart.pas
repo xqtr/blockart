@@ -45,6 +45,7 @@ Uses
   blockart_block,
   blockart_save,
   blockart_tdfgallery,
+  blockart_gbext,
   m_MenuInput;
 
 Type
@@ -608,7 +609,7 @@ Begin
                     End;
                 End;
             2 : Begin
-                  BoxOpen (15, 4, 30, 10);
+                  BoxOpen (15, 4, 30, 11);
                   CoolBoxOpen (14, 'Tools');
       
                   Menu.AddNone ('P', ' Pick Color '  , 16, 5, 14, '');
@@ -616,6 +617,7 @@ Begin
                   Menu.AddNone ('S', ' Charset '     , 16, 7, 14, '');
                   Menu.AddNone ('D', ' Draw Mode '   , 16, 8, 14, '');
                   Menu.AddNone ('G', ' Global '      , 16, 9, 14, '');
+                  Menu.AddNone ('E', ' GameBoy Exp.' , 16,10, 14, '');
       
                   Res := Menu.Execute;
       
@@ -637,6 +639,11 @@ Begin
                       'P' : CurChar.Color:=GetColor(Screen,Keyboard,CurChar.Color);
                       'A' : CurChar.Ch := Chr(GetChar(Screen, Keyboard));
                       'D' : DrawMode := GetDrawMode(Screen);
+                      'E' : Begin
+                              blockart_gbext.screen := Screen;
+                              GBExtract(MainImage);
+                              Screen.PutScreenImage(MainImage);
+                            End;
                       'G' : Begin
                               Global(MainImage);
                               Edit;

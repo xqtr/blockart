@@ -325,6 +325,11 @@ Repeat
 
   Case Keyboard.ReadKey Of
     #00 : Case Keyboard.ReadKey Of
+          keyF1 : If FileExist(CurDir + Item[BarPos]) Then FileCopy(CurDir + Item[BarPos],FontFolder+'fonts'+pathsep+'rate1'+pathsep+Item[BarPos]);
+          keyF2 : If FileExist(CurDir + Item[BarPos]) Then FileCopy(CurDir + Item[BarPos],FontFolder+'fonts'+pathsep+'rate2'+pathsep+Item[BarPos]);
+          keyF3 : If FileExist(CurDir + Item[BarPos]) Then FileCopy(CurDir + Item[BarPos],FontFolder+'fonts'+pathsep+'rate3'+pathsep+Item[BarPos]);
+          keyF4 : If FileExist(CurDir + Item[BarPos]) Then FileCopy(CurDir + Item[BarPos],FontFolder+'fonts'+pathsep+'rate4'+pathsep+Item[BarPos]);
+          keyF5 : If FileExist(CurDir + Item[BarPos]) Then FileCopy(CurDir + Item[BarPos],FontFolder+'fonts'+pathsep+'rate5'+pathsep+Item[BarPos]);
             #45: Done := True;
             #71 : Begin //home
                     search_idx:=1;
